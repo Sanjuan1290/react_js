@@ -1,0 +1,35 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    background-color: rgb(92,170,252);
+    padding: 20px;
+    height: 100vh;
+
+    background: linear-gradient(70deg,
+     #60b0f4 30%, 
+     #60b0f4 65%,
+     #ffffff 50%,
+     #ffffff 50%
+     );
+
+}
+
+.navigation-container{
+    display: flex;
+    padding: 20px 15px;
+    background-color: rgb(92,170,252);
+    border: 5px solid white;
+    border-radius: 10px;
+    color: white;
+}
+.navigation-items{
+    display: flex;
+    flex: 1;
+    justify-content: end;
+    gap: 15px;
+    font-size: 14px;
+}
