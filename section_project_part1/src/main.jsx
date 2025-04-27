@@ -1,29 +1,38 @@
 
 import { createRoot } from 'react-dom/client'
-import  icon  from './assets/icon.png'
+import logo from './assets/icon.png'
 
-function RenderMain(){
-
-    return (
+function RenderHeader(){
+    return(
         <main>
-            <img src={icon} className='react-logo'/>
-            
-            <section className='content-container'>
+            <img src={logo} alt="Reach Logo" width="40px" />
 
-                <h1>Fun facts about React</h1>
-
-                <ul>
-                    <li>Was first released in 2013</li>
-                    <li>Was originally created by Jordan Walke</li>
-                    <li>Has well over 100K stars on GitHub</li>
-                    <li>Is maintained by Meta</li>
-                    <li>Powers thousands of enterprise apps, including mobile apps</li>
-                </ul>
-            </section>
+            <h1>I'm Exited because I currently moving forward 🧒</h1>
         </main>
     )
 }
 
+function CustomPage(){
+    return(
+        <ol>
+            <li>For Creating Website</li>
+            <li>For Personal Portfolio</li>
+            <li>More Indemand than other framework 🧒</li>
+            <li>For Future</li>
+        </ol>
+    )
+}
+
+function RenderFooter(){
+    return(
+        <small>©️ 2025 San Juan development. All rights reserved.</small>
+    )
+}
+
 createRoot(document.querySelector('#root')).render(
-    <RenderMain />
+    <>
+        <RenderHeader />
+        <CustomPage />
+        <RenderFooter />
+    </>
 )
