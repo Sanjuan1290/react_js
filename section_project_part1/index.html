@@ -10,15 +10,57 @@
             font-family: sans-serif;
             background-color: rgb(34,37,40);
             color: white;
-            width: 400px;
-            padding: 50px 25px;
+            width: 450px;
+            height: 400px;
             margin: 100px auto;
             border-radius: 10px;
             box-shadow: 4px 4px 10px rgb(34,37,40);
+            position: relative;
         }
 
         ol{
             line-height: 1.5;
+        }
+
+        .nav-list{
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            font-size: 14px;
+        }
+        .nav-list li:hover{
+            cursor: pointer;
+            color: rgba(0, 255, 255, 0.498);
+        }
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 3px rgb(0, 0, 0);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 10px;
+        }
+
+        main, footer{
+            padding-left: 20px;
+        }
+
+        .logo {
+            width: 40px;
+        }
+
+        footer{
+            background-color: black;
+            position: absolute;
+            bottom: 0;
+            height: 50px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            color: rgb(164, 162, 162);
         }
     </style>
 </head>
