@@ -1,13 +1,13 @@
-import Navbar from './Component/Navbar.jsx'
-import Main from './Component/Main.jsx'
+
+import { createRoot } from 'react-dom/client'
+import Header from './components/Header.jsx'
+import Main from './components/Main.jsx'
 
 
-export default function RenderApp(){
-    return(
-        <>
-            <Navbar />
-            <Main />
-        </>
-        
-    )
-}
+
+createRoot(document.querySelector('#root')).render(
+    <div className="container">
+        <Header />
+        <Main />
+    </div>
+)
