@@ -4,8 +4,8 @@ import { Article } from './component/Article.jsx'
 
 import globeImg from './assets/globe.png'
 
-import mountFujiImage from '../public/mountFuji.png';
-import locationIcon from '../public/location.png'
+import mountFujiImage from '/mountFuji.png';
+import locationIcon from '/location.png'
 
 createRoot(document.querySelector('#root')).render(
     <>
@@ -35,3 +35,10 @@ createRoot(document.querySelector('#root')).render(
         />
     </>
 )
+
+
+const pokemons = ["Bulbassaur", "Charmander", "Squirtle"]
+
+const result = pokemons.map(pokemon => `<p>${pokemon}<p>`)
+
+console.log(result);
