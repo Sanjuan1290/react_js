@@ -36,9 +36,3 @@ createRoot(document.querySelector('#root')).render(
     </>
 )
 
-
-const pokemons = ["Bulbassaur", "Charmander", "Squirtle"]
-
-const result = pokemons.map(pokemon => `<p>${pokemon}<p>`)
-
-console.log(result);
