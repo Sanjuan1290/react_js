@@ -2,8 +2,7 @@
 
 
 export function Article(props){
-    const ninjaTurtle = ["Donatello", "Michaelangelo", "Rafael", "Leonardo"]
-    const ninjaTurtleH2 = ninjaTurtle.map(ninjaName => <h2>{ninjaName}</h2>)
+
     return(
         <article>
             <img src={props.img.mountFujiImg.src} alt={props.img.mountFujiImg.alt} />
@@ -22,8 +21,6 @@ export function Article(props){
 
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa quo voluptatum dolorum quas molestiae, modi nemo incidunt veritatis animi totam est deserunt explicabo dolore, officiis rem, itaque cupiditate. Explicabo, hic?</p>
             </section>
-
-            {ninjaTurtleH2}
         </article>
     )
 }

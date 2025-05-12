@@ -1,0 +1,62 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Inter, sans-serif;
+}
+body{
+    background-color: #FAFAF8;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight:400;
+    gap: 10px;
+
+    padding: 18px 0px;
+    box-shadow: 5px 0px 5px rgba(128, 128, 128, 0.575);
+}
+header > img {
+    width: 50px;
+}
+
+main{
+    margin-top: 50px;
+}
+main > ul{
+    padding: 24px;
+    font-size: 20px;
+    width: 450px;
+    margin: 20px auto;
+}
+main > ul li{
+    margin-top: 10px;
+}
+
+.inputForm{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.inputForm > input{
+    padding: 8px 10px;
+    width: 300px;
+    border: .2px solid gray;
+    border-radius: 5px;
+}
+.inputForm > button{
+    background-color: rgb(18,19,18);
+    color: rgba(255, 255, 255, 0.845);
+    padding: 8px 20px;
+    border-radius: 8px;
+}
+.inputForm > button:hover{
+    cursor: pointer;
+}
+.inputForm > button::before{
+    content: "+";
+    padding-right: 5px;
+}
