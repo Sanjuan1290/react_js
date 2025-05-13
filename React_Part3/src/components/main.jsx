@@ -1,24 +1,31 @@
+import React from 'react'
 
 export default function(){
+    
+    let [ingredients, setIngredients] = React.useState(["Chicken", "Oregano", "Tomatoes"])
+
     function handleClick(event){
         event.preventDefault()
-        console.log('Form Submitted!');
 
-        ingredients.push(document.querySelector('.ingredientInput').value)
+        const input = document.querySelector('.ingredientInput');
+        const value = input.value.trim()
 
-        console.log(ingredients);
+        if (!value) return
+
+        setIngredients(prevIngredient => [...prevIngredient, value])
+        input.value = "";
     }
-
-    let ingredients = ["Chicken", "Oregano", "Tomatoes"]
 
     return(
         <main>
             <form className="inputForm" onSubmit={handleClick}>
+
                 <input type="text" 
                 placeholder="e.g. oregano" 
                 aria-label="Add Ingredient"
                 name="ingredient"
                 className="ingredientInput"/>
+
                 <button type="submit">Add ingredient</button>
             </form>
 
