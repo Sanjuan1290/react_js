@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 
 export function Practice(){
-    let [stateNumber, setStateNumber] = React.useState(0)
+    const [stateNumber, setStateNumber] = useState(0)
 
-    function subtractState(){
-        setStateNumber(stateNumber - 1)
-    }
 
     function addState(){
-        setStateNumber(stateNumber + 1)
+        setStateNumber((prevState) => {
+            return prevState + 1
+        })
+    }
+
+    function subractState(){
+        setStateNumber((prevState) => {
+            return prevState - 1
+        })
     }
 
     return(
-        <div>
-            <h3>How many times will Bob say "state" in this section?</h3>
+        <div className="container">
+            <p>How many times will Bob say "state" in this section?</p>
 
-            <div className="circleContainer">
-                <button onClick={subtractState} className="operation subtract">-</button>
-                <p className="numberState">{stateNumber}</p>
-                <button onClick={addState} className="operation add">+</button>
+            <div className="content">
+                <button onClick={subractState} className="subtract operator">-</button>
+                <p className="value">{stateNumber}</p>
+                <button onClick={addState} className="add operator">+</button>
             </div>
         </div>
     )
