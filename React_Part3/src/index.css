@@ -1,0 +1,8 @@
+@import './components_Style/Objects.css';
+@import './components_Style/Forms.css';
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Inter, sans-serif;
+}

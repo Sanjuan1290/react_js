@@ -1,0 +1,15 @@
+.object_challange_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.object_challange_container > img:nth-of-type(1){
+    width: 200px;
+}
+.object_challange_container > img:nth-of-type(2){
+    width: 40px;
+}
+
+.object_challange_container > p{
+    margin: 0;
+}

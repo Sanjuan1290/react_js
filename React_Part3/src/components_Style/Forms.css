@@ -1,0 +1,38 @@
+
+.Form_container{
+    width: fit-content;
+    margin: 50px auto;
+    background-color: rgb(38,209,183);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgb(119, 165, 147);
+}
+
+.Form_container > section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Form_container .Form_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.Form_container .Form_section > label {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.Form_container .Form_section > input{
+    border-radius: 10px;
+    padding: 7px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.746);
+}
+
+.Form_container .Form_section > button{
+    border-radius: 21px;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.746);
+    margin-top: 20px;
+}
