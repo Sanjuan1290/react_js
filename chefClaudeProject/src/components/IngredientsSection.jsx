@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function(){
-    const [ingredients, setIngredients] = useState(['Chicken', 'Oregano', 'Tomatoes'])
+    const [ingredients, setIngredients] = useState([])
 
     const myIngredients = ingredients.map((value, index) => <li key={index}>{value}</li>)
 
