@@ -19,11 +19,11 @@ export default function(){
         form_elem.reset()
     }
     return(
-        <div>
+        <div className="Form_container">
             <section>
                 <h1>Signup Form</h1>
 
-                <form method="GET" onSubmit={handleSubmit}>
+                <form method="GET" onSubmit={handleSubmit} className="Form_section">
                     <label htmlFor="email">Email:</label>
                     <input type="email" name="email" id="email" placeholder="joe@schmoe.com"/>
 
