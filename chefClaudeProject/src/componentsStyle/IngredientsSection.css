@@ -1,0 +1,33 @@
+
+form{
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.input_Section > input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    margin-right: 10px;
+}
+
+.input_Section > button{
+    background-color: black;
+    color: rgba(255, 255, 255, 0.944);
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.input_Section > button::before{
+    content: '+';
+    margin-right: 5px;
+}
+
+.ingredientList_Section{
+    margin: 20px 0px 0px 20px;
+}
+
+.ingredientList_Section > ul > li{
+    font-weight: 600;
+    line-height: 1.4;
+}
