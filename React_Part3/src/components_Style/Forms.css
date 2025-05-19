@@ -1,6 +1,6 @@
 
 .Form_container{
-    width: fit-content;
+    width: 250px;
     margin: 50px auto;
     background-color: rgb(38,209,183);
     padding: 30px;
@@ -35,4 +35,13 @@
     padding: 10px;
     border: 1px solid rgba(128, 128, 128, 0.746);
     margin-top: 20px;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 5px;
+    font-size: 14px;
 }

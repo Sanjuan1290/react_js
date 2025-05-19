@@ -10,10 +10,11 @@ export default function(){
 
         const email = formData.get('email')
         const password = formData.get('password')
+        const employmentStatus = formData.get('emplymentStatus')
 
-        console.log(formData);
         console.log(email);
         console.log(password);
+        console.log(employmentStatus);
 
         
         form_elem.reset()
@@ -25,12 +26,31 @@ export default function(){
 
                 <form method="GET" onSubmit={handleSubmit} className="Form_section">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" name="email" id="email" placeholder="joe@schmoe.com"/>
+                    <input type="email" name="email" id="email" defaultValue="joe@schmoe.com" placeholder="joe@schmoe.com"/>
 
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="password" id="password" defaultValue="12345" />
 
                     <button>Submit</button>
+
+                    <fieldset>
+                        <legend>Employment Status</legend>
+
+                        <label>
+                            <input type="radio" name="emplymentStatus" defaultChecked={true} value='Unemployed'/>
+                            Unemployed
+                        </label>
+
+                        <label>
+                            <input type="radio" name="emplymentStatus" value='Unemployed'/>
+                            Part-Time
+                        </label>
+
+                        <label>
+                            <input type="radio" name="emplymentStatus" value='Unemployed'/>
+                            Full-time
+                        </label>
+                    </fieldset>
                 </form>
             </section>
         </div>
