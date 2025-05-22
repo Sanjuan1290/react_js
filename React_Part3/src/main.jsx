@@ -4,6 +4,7 @@ import { ArrayState } from './components/Arrays.jsx'
 import Objects from './components/Objects.jsx'
 import Forms from './components/Forms.jsx'
 import ConditionalRendering from './components/ConditionalRendering.jsx'
+import Pad from './components/PadsButton.jsx'
 
 createRoot(document.querySelector('#root')).render(
 
@@ -12,8 +13,7 @@ createRoot(document.querySelector('#root')).render(
         {/* <ArrayState /> */}
         {/* <Objects /> */}
         {/* <Forms /> */}
-
-        <ConditionalRendering />
-
+        {/* <ConditionalRendering /> */}
+        <Pad />
     </>
 )

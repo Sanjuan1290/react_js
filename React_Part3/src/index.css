@@ -1,5 +1,6 @@
 @import './components_Style/Objects.css';
 @import './components_Style/Forms.css';
+@import './components_Style/PadsButton.css';
 
 *{
     padding: 0;
