@@ -11,6 +11,15 @@ export default function(){
         })
     }
 
+    function turnOffBtn(){
+        setPads(prevPads => {
+            return prevPads.map(value => {
+                return {...value, on: false}
+            })
+        })
+    }
+
+
     const myButtons = pads.map(pad => <button 
             key={pad.id}
             style={{backgroundColor: pad.color}}
@@ -18,12 +27,15 @@ export default function(){
             onClick={() => {
                 handleBtnClick(pad.id)
             }}
-
          ></button>)
 
     return(
+        <>
         <div className="pad_container">
             {myButtons}
         </div>
+
+        <button onClick={turnOffBtn}>Turn Off All</button>
+        </>
     )
 }
