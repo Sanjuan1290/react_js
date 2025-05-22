@@ -1,7 +1,9 @@
 import { useState } from "react"
 
 export default function(){
-    const [ingredients, setIngredients] = useState([])
+    const [ingredients, setIngredients] = useState(
+        ['all the main spices', 'pasta', 
+            'ground beef', 'tomato paste'])
 
     const myIngredients = ingredients.map((value, index) => <li key={index}>{value}</li>)
 
@@ -19,6 +21,8 @@ export default function(){
 
         form_elem.reset()
     }
+
+
     return(
         <form onSubmit={handleSubmit} method="POST">
             <section className="input_Section">
@@ -27,10 +31,27 @@ export default function(){
             </section>
 
             <section className="ingredientList_Section">
+                {
+                    ingredients.length > 0 && <h2>Ingredients on hand:</h2>
+                }
                 <ul>
                     {myIngredients}
                 </ul>
             </section>
+
+            {
+                ingredients.length >= 4 && <section className="getRecipe_Section">
+                    <div>                
+                        <h3>Ready for a recipe?</h3>
+                        <p>Generate a recipe from your list of ingredients</p>
+                    </div>
+
+                    <button>Get a recipe</button>
+                </section>
+            }
+
+            
+
         </form>
     )
 }
