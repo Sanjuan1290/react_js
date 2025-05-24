@@ -1,4 +1,5 @@
 import { useState } from "react"
+import RecipeRecommendation from './RecipeRecommendation.jsx'
 
 export default function(){
     const [ingredients, setIngredients] = useState(
@@ -6,6 +7,8 @@ export default function(){
             'ground beef', 'tomato paste'])
 
     const myIngredients = ingredients.map((value, index) => <li key={index}>{value}</li>)
+
+    let [isShown, setIsShown] = useState(false)
 
     function handleSubmit(event){
         event.preventDefault()
@@ -20,6 +23,10 @@ export default function(){
         setIngredients(prev => [...prev, ingredient])
 
         form_elem.reset()
+    }
+
+    function showRecipe(){
+        setIsShown(prev => !prev)
     }
 
 
@@ -46,12 +53,12 @@ export default function(){
                         <p>Generate a recipe from your list of ingredients</p>
                     </div>
 
-                    <button>Get a recipe</button>
+                    <button onClick={showRecipe}>Get a recipe</button>
                 </section>
             }
 
-            
 
+            {isShown && <RecipeRecommendation />}
         </form>
     )
 }
