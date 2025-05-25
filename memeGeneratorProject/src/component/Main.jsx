@@ -12,9 +12,6 @@ export default function(){
         
         const {name, value} = event.target
 
-        console.log(name);
-        console.log(value);
-
         setMeme(prevValue => {
             return {
                 ...prevValue,
@@ -23,11 +20,20 @@ export default function(){
         })
     }
 
-    function handleButtonClick(){
+    async function handleButtonClick(){
+        const response = await fetch('https://api.imgflip.com/get_memes')
+
+        const data = await response.json();
+
+        const randomImage = Math.floor(Math.random() * 100)
+
+        console.log(data);
+        console.log(randomImage);
+
         setMeme(prevValue => {
             return {
                 ...prevValue,
-                image: 'http://i.imgflip.com/1bij.jpg'
+                image: data.data.memes[randomImage].url
             }
         })
     }
