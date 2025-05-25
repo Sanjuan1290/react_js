@@ -1,6 +1,7 @@
 import { useState } from "react"
 import RecipeRecommendation from './RecipeRecommendation.jsx'
 
+
 export default function(){
     const [ingredients, setIngredients] = useState(
         ['all the main spices', 'pasta', 
@@ -58,7 +59,7 @@ export default function(){
             }
 
 
-            {isShown && <RecipeRecommendation />}
+            {isShown && <RecipeRecommendation ingredients={ingredients} />}
         </form>
     )
 }
