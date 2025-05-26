@@ -5,11 +5,20 @@ export default function(){
 
     const [windowSize, setWindowSize] = useState(window.innerWidth)
 
+    console.log('load Window Tracker');
+
     useEffect(()=> {
-        window.addEventListener('resize', ()=> {
+        function windowEventHandler(){
             setWindowSize(window.innerWidth)
-            console.log(window.innerWidth);
-        })
+            console.log('Resized');
+        }
+
+        window.addEventListener('resize', windowEventHandler)
+
+        return () => {
+            console.log('unload Window');
+            window.removeEventListener('resize', windowEventHandler)
+        }
     }, [])
 
 
