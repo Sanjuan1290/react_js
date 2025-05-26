@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function(){
 
@@ -6,6 +6,8 @@ export default function(){
                 topText: 'One does not simply', 
                 bottomText: 'Walk into Mordor',
                 image: 'http://i.imgflip.com/1bij.jpg'});
+
+    const [allImage, setAllImage] = useState([{}])
 
 
     function handleOnChangeEvent(event){
@@ -20,20 +22,22 @@ export default function(){
         })
     }
 
+    useEffect(()=> {
+        fetch('https://api.imgflip.com/get_memes').
+            then(response => response.json()).
+            then(data => setAllImage(data)).
+            catch(error => {console.log(`${error.message}`);})
+
+        console.log('fetch complete');
+    }, [])
+
     async function handleButtonClick(){
-        const response = await fetch('https://api.imgflip.com/get_memes')
-
-        const data = await response.json();
-
         const randomImage = Math.floor(Math.random() * 100)
-
-        console.log(data);
-        console.log(randomImage);
 
         setMeme(prevValue => {
             return {
                 ...prevValue,
-                image: data.data.memes[randomImage].url
+                image: allImage.data.memes[randomImage].url
             }
         })
     }
