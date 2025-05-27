@@ -8,10 +8,6 @@ export default function(){
     const [DisabledButtons, setDisabledButtons] = useState([]) //based on index
     const [isFinished, setIsFinished] = useState(false)
 
-    // useEffect(()=>{
-    //     setAllButtons(generateRandomNumbers())
-    // }, [])
-
     useEffect(()=>{
         if(DisabledButtons.length === 10){
             console.log('Congratulation!');
@@ -60,9 +56,6 @@ export default function(){
     }
 
     function playAgain(){
-        // buttonContainerRef.current.querySelectorAll('button').forEach(btn => {
-        //     btn.style.background = 'white'
-        // })
         setDisabledButtons([])
         setIsFinished(false)
     }
