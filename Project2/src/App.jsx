@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import {faker}  from '@faker-js/faker'
 import { languagesList } from './languagesList.js'
 import Header from './components/Header.jsx'
@@ -15,11 +15,16 @@ export default function(){
     const [result, setResult] = useState(''); //win or loss
     const [languages_Status, setLanguages_Status] = useState(languagesList);
     const [userInputKey, setUserInputKey] = useState([])
+    const [attempts, setAttempts] = useState(0)
 
-    let attempt = 0;
+    const newGameRef = useRef();
+
+    useEffect(()=>{
+        if(result !== "") newGameRef.current.focus()
+    }, [result])
 
     console.log(answerWord);
-
+    console.log('userInputKey: ' + userInputKey);
 
     useEffect(()=> {
         result === 'win' || result === 'loss' ? 
@@ -31,19 +36,55 @@ export default function(){
         };
     }, [result])
 
+    useEffect(()=>{
+        setLanguages_Status(prev_Languages_Status => (
+            prev_Languages_Status.map((prevLang) => {
+                
+                if(attempts === 9){
+                    isSolved('loss')
+                    return prevLang
+
+                }else  return attempts === prevLang.id ? {...prevLang, isAlive: false}: prevLang
+            })
+        ))   
+    }, [attempts])
 
     function handleClickEvent(inputKey){
-        setUserInputKey(prev => [...prev, inputKey])
+
+        setAttempts(prev => {
+            if(!answerWord.toUpperCase().includes(inputKey)) return prev + 1
+            else return prev
+        })
+
+        setUserInputKey(prev => prev.includes(inputKey) ? prev : [...prev, inputKey])
     }
+
     function handleKeyEnter(event){
-        setUserInputKey(prev => [...prev, event.key.toUpperCase()])
+        console.log('key press: ' + event.key);
+        if(event.key.match(/^[a-zA-Z]+$/)){
 
-        
+            setAttempts(prev => {
+                if(!answerWord.toUpperCase().includes(event.key.toUpperCase())) return prev + 1
+                else return prev
+            })
+
+            setUserInputKey(prev => prev.includes(event.key.toUpperCase()) ? prev : [...prev, event.key.toUpperCase()])
+        }
     }
 
-    function isSolved(){
-        setResult('win')
-    }   
+    function isSolved(result){
+        setResult(result)
+    }
+
+    function startNewGame(){
+        setResult('')
+        setAnswerWord(faker.word.verb())
+        setUserInputKey([])
+        setAttempts(0)
+        setLanguages_Status(prev => (
+            prev.map(status => ({...status, isAlive: true}))
+        ))
+    }
 
     return(
         <>
@@ -57,7 +98,7 @@ export default function(){
             <Answer 
             answerWord={answerWord} 
             userInputKey={userInputKey} 
-            isSolved={() => {isSolved()}}/>
+            isSolved={isSolved}/>
 
             <InputKeys 
             onClick={handleClickEvent}
@@ -65,7 +106,11 @@ export default function(){
             userInputKey={userInputKey}
             />
 
-            <button className='newGameBtn'>New Game</button>
+            {
+                result === '' ? null : <button ref={newGameRef} 
+                                onClick={startNewGame} 
+                                className='newGameBtn'>New Game</button>
+            }
         </>
     )
 } 

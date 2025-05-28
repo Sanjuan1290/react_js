@@ -5,6 +5,12 @@ export default function(props){
 
     let inputtedLetters = []
 
+    useEffect(()=>{
+        if(inputtedLetters.join('') === props.answerWord.toUpperCase()){
+            props.isSolved('win')
+        }
+    }, [inputtedLetters])
+
     const wordToGuess_Letters = props.answerWord.toUpperCase().split('')
 
     const generate_Letter_containers = wordToGuess_Letters.map((letter, index) => {
@@ -23,12 +29,7 @@ export default function(props){
         );
     });
 
-    useEffect(()=>{
-        if(inputtedLetters.join('') === props.answerWord.toUpperCase()){
-            props.isSolved()
-        }
-    }, [inputtedLetters])
-
+    props.userInputKey
 
     return(
         <section className="answer-container">

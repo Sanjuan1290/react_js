@@ -10,15 +10,7 @@ export default function(props){
         'V', 'W', 'X', 'Y', 'Z'
     ];
 
-    
-
     const generateKey_Container = keys.map(key => {
-        // props.answerWord
-        // props.userInputKey
-        console.log(props.answerWord);
-        console.log(props.answerWord.split('').includes(key));
-
-
         return <div key={key}>
             <button 
             className={props.userInputKey.includes(key) ?
