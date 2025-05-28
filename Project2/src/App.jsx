@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import {faker}  from '@faker-js/faker'
+import Confetti from 'react-confetti'
 import { languagesList } from './languagesList.js'
 import Header from './components/Header.jsx'
 import Result from './components/Result.jsx'
@@ -23,8 +24,6 @@ export default function(){
         if(result !== "") newGameRef.current.focus()
     }, [result])
 
-    console.log(answerWord);
-    console.log('userInputKey: ' + userInputKey);
 
     useEffect(()=> {
         result === 'win' || result === 'loss' ? 
@@ -35,6 +34,7 @@ export default function(){
             window.removeEventListener('keydown', handleKeyEnter);
         };
     }, [result])
+
 
     useEffect(()=>{
         setLanguages_Status(prev_Languages_Status => (
@@ -51,24 +51,35 @@ export default function(){
 
     function handleClickEvent(inputKey){
 
-        setAttempts(prev => {
-            if(!answerWord.toUpperCase().includes(inputKey)) return prev + 1
-            else return prev
+        setUserInputKey(prev => {
+            if(prev.includes(inputKey)){
+                return prev
+            }else{
+                setAttempts(prev => {
+                    if(!answerWord.toUpperCase().includes(inputKey)) return prev + 1
+                    else return prev
+                })
+                return [...prev, inputKey]
+            }
         })
-
-        setUserInputKey(prev => prev.includes(inputKey) ? prev : [...prev, inputKey])
     }
 
     function handleKeyEnter(event){
         console.log('key press: ' + event.key);
-        if(event.key.match(/^[a-zA-Z]+$/)){
+        if(event.key.match(/^[a-zA-Z]$/)){
 
-            setAttempts(prev => {
-                if(!answerWord.toUpperCase().includes(event.key.toUpperCase())) return prev + 1
-                else return prev
-            })
-
-            setUserInputKey(prev => prev.includes(event.key.toUpperCase()) ? prev : [...prev, event.key.toUpperCase()])
+            setUserInputKey(prev => {
+                    if(prev.includes(event.key.toUpperCase())){
+                        return prev
+                    }else{
+                        setAttempts(prev => {
+                            if(!answerWord.toUpperCase().includes(event.key.toUpperCase())) return prev + 1
+                            else return prev
+                        })
+                        return [...prev, event.key.toUpperCase()]
+                    }      
+                }  
+            )
         }
     }
 
@@ -88,6 +99,10 @@ export default function(){
 
     return(
         <>
+            {
+                result === 'win' ? <Confetti /> : null
+            }
+
             <Header />
             {
                 result === '' ? null : <Result gameResult={result} />
