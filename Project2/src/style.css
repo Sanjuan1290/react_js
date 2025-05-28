@@ -135,3 +135,12 @@ header p{
 .newGameBtn:active{
     transform: scale(1);
 }
+
+.input-container > div > button.correctKey{
+    background-color: rgba(69, 211, 88, 0.864);
+}
+
+
+.input-container > div > button.wrongKey{
+    background-color: rgb(189, 12, 12);
+}

@@ -4,12 +4,12 @@ export const languagesList = [
             id: 1,
             name: 'HTML',
             backgroundColor: 'rgb(215,98,28)',
-            isAlive: false
+            isAlive: true
         }, {
             id: 2,
             name: 'CSS',
             backgroundColor: 'rgb(34, 34, 213)',
-            isAlive: false
+            isAlive: true
         }
         , {
             id: 3,

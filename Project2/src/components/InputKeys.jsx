@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 
 
-export default function(){
+export default function(props){
 
     const keys = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G',
@@ -9,11 +10,24 @@ export default function(){
         'V', 'W', 'X', 'Y', 'Z'
     ];
 
-    const generateKey_Container = keys.map(key => (
-        <div key={key}>
-            <button>{key}</button>
+    
+
+    const generateKey_Container = keys.map(key => {
+        // props.answerWord
+        // props.userInputKey
+        console.log(props.answerWord);
+        console.log(props.answerWord.split('').includes(key));
+
+
+        return <div key={key}>
+            <button 
+            className={props.userInputKey.includes(key) ?
+                 props.answerWord.toUpperCase().includes(key) ? 'correctKey' :
+                 'wrongKey' : null}
+            onClick={()=>{props.onClick(key)}}
+            >{key}</button>
         </div>
-    ))
+    })
 
     return(
         <section className="input-container">
