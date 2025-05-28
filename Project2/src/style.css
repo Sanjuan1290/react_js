@@ -1,0 +1,68 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Karla, sans-serif;
+}
+
+body{
+    background-color: rgb(129, 133, 136);
+    color:rgba(255, 255, 255, 0.848);
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 550px;
+    padding: 25px;
+    border: 3px solid white;
+    background-color: rgb(34,34,34);
+    gap: 20px;
+}
+
+header{
+    text-align: center;
+    width: 80%;
+    margin-top: 20px;
+}
+header h2{
+    margin-bottom: 5px;
+}
+header p{
+    color: rgba(255, 255, 255, 0.659);
+}
+
+.result-container{
+    text-align: center;
+    width: 80%;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+.win{
+    background-color: rgb(15,161,81);
+}
+.loss{
+    background-color: rgb(176,39,39);
+}
+
+.languanges-container{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+}
+.languanges-container > div{
+    position: relative;
+}
+.languanges-container > div > button{
+    padding: 5px 8px;
+}
+
+.languanges-container > div > p{
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translate(-50%, -50%);
+}
