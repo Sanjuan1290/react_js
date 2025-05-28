@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react"
+import Confetti from 'react-confetti'
 
 
 export default function(){
-    const buttonContainerRef = useRef()
+    const buttonContainerRef = useRef(null)
+    const playAgainBtn = useRef(null)
     
     const [allButtons, setAllButtons] = useState([]) // based on value
     const [DisabledButtons, setDisabledButtons] = useState([]) //based on index
@@ -17,6 +19,10 @@ export default function(){
 
     useEffect(()=>{
         setAllButtons(generateRandomNumbers())
+
+        if (isFinished && playAgainBtn.current) {
+            playAgainBtn.current.focus();
+        }
     }, [isFinished])
 
     function generateRandomNumbers(){
@@ -63,6 +69,10 @@ export default function(){
     
     return(
         <main>
+            {
+                isFinished && <Confetti width={380} height={350} numberOfPieces={100}/>
+            }
+
             <section ref={buttonContainerRef} className="button-container">
                 { //generate Buttons
                     allButtons.map((btnNum, index) => <button
@@ -74,7 +84,7 @@ export default function(){
             </section>
 
             {
-                isFinished ? <button className="rollBtn" onClick={playAgain}>Play Again</button> : 
+                isFinished ? <button ref={playAgainBtn} className="rollBtn" onClick={playAgain}>Play Again</button> : 
                 <button className="rollBtn" onClick={rollDice}>Roll</button>
             }
         </main>
