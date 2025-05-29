@@ -144,3 +144,7 @@ header p{
 .input-container > div > button.wrongKey{
     background-color: rgb(189, 12, 12);
 }
+
+.missingLetters{
+    color: red;
+}

@@ -23,7 +23,7 @@ export default function(){
     useEffect(()=>{
         if(result !== "") newGameRef.current.focus()
     }, [result])
-
+    console.log(answerWord);
 
     useEffect(()=> {
         result === 'win' || result === 'loss' ? 
@@ -42,6 +42,8 @@ export default function(){
                 
                 if(attempts === 9){
                     isSolved('loss')
+
+
                     return prevLang
 
                 }else  return attempts === prevLang.id ? {...prevLang, isAlive: false}: prevLang
@@ -113,6 +115,7 @@ export default function(){
             <Answer 
             answerWord={answerWord} 
             userInputKey={userInputKey} 
+            result={result}
             isSolved={isSolved}/>
 
             <InputKeys 

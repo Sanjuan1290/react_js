@@ -4,6 +4,20 @@ import { useEffect, useState } from "react";
 export default function(props){
 
     let inputtedLetters = []
+    let missingLetters = []
+
+        
+    if(props.result === 'loss'){
+        console.log("inputtedLetters: "), inputtedLetters;
+        const letters = props.answerWord.split('').map(keyAnswer => {
+            return !inputtedLetters.includes(keyAnswer.toUpperCase()) ? keyAnswer.toUpperCase() : null
+        })
+
+        missingLetters = letters.filter(key => key !== null)
+
+        console.log("missingLetters: " + missingLetters);
+    }
+
 
     useEffect(()=>{
         if(inputtedLetters.join('') === props.answerWord.toUpperCase()){
@@ -21,15 +35,17 @@ export default function(props){
 
         return (
             <div key={index}>
-                <p>
-                    {props.userInputKey.includes(letter) && 
-                    props.userInputKey.length !== 0 ? letter : ''}
-                </p>
+
+                {
+                    props.userInputKey.includes(letter) && 
+                    props.userInputKey.length !== 0 ? <p>{letter}</p> :  props.result === 'loss' ? 
+                    !props.userInputKey.includes(letter) ? <p className="missingLetters">{missingLetters[index]}</p> : <p></p> : null
+                }      
+
             </div>
         );
     });
 
-    props.userInputKey
 
     return(
         <section className="answer-container">
