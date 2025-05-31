@@ -1,11 +1,7 @@
 
-export default function(props){
+export default function About(){
 
     return(
-
-        <div>
-            <h1>About Page</h1>
-            <props.link to='/'>Home Page</props.link>
-        </div>
+        <p>About</p>
     )
 }

@@ -2,5 +2,102 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: Karla, Inter, sans-serif;
+    font-family: Inter, sans-serif;
 }
+
+
+body{
+    padding: 5px;
+    height: calc(100vh - 10px);
+}
+
+
+#root{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(247, 232, 210);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 25px;
+}
+header > h1{
+    font-weight: 1000;
+    font-size: 1.5rem;
+}
+header > nav > ul{
+    display: flex;
+    gap: 10px;
+}
+header > nav > ul > li{
+    list-style: none;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.709);
+}
+header > nav > ul > li:hover{
+    cursor: pointer;
+}
+
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(26,27,26);
+    height: 50px;
+}
+footer > p{
+    font-size: .8rem;
+    color: rgb(157, 157, 157);
+    font-weight: 600;
+}
+
+
+.homePage{
+    position: relative;
+    flex: 1;
+}
+.homePage > img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+.homePage > .content-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.835);
+    padding: 45px 25px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.429);
+    z-index: 10;
+}
+.homePage > .content-container > h1{
+    font-size: 1.8rem;
+}
+.homePage > .content-container > button{
+    background-color: rgb(229, 107, 30);
+    height: 45px;
+    margin-top: 40px;
+    color: rgba(255, 255, 255, 0.761);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
